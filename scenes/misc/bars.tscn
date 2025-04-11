@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://bswgblw3j6ow6"]
+
+[ext_resource type="Texture2D" uid="uid://c5gjkfxbrkc4f" path="res://assets/misc/progress_under.png" id="1_c7uvs"]
+[ext_resource type="Texture2D" uid="uid://bajqsqvflwiv0" path="res://assets/misc/progress_over.png" id="2_3xy07"]
+[ext_resource type="Texture2D" uid="uid://b6hgfahtynvm2" path="res://assets/misc/health.png" id="3_2ijhk"]
+[ext_resource type="Texture2D" uid="uid://kais5tthgwmp" path="res://assets/misc/speed.png" id="4_80pqg"]
+[ext_resource type="Texture2D" uid="uid://dckaik3bvn6vy" path="res://assets/misc/shield.png" id="5_ds60b"]
+
+[node name="bars" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="health" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -16.0
+offset_top = -90.0
+offset_right = 16.0
+offset_bottom = -82.0
+grow_horizontal = 2
+texture_under = ExtResource("1_c7uvs")
+texture_over = ExtResource("2_3xy07")
+texture_progress = ExtResource("3_2ijhk")
+
+[node name="shield" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -16.0
+offset_top = -82.0
+offset_right = 16.0
+offset_bottom = -74.0
+grow_horizontal = 2
+texture_under = ExtResource("1_c7uvs")
+texture_over = ExtResource("2_3xy07")
+texture_progress = ExtResource("5_ds60b")
+
+[node name="speed" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -16.0
+offset_top = -74.0
+offset_right = 16.0
+offset_bottom = -66.0
+grow_horizontal = 2
+texture_under = ExtResource("1_c7uvs")
+texture_over = ExtResource("2_3xy07")
+texture_progress = ExtResource("4_80pqg")

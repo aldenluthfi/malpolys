@@ -1,0 +1,209 @@
+[gd_scene load_steps=15 format=3 uid="uid://da5jiuqnd1p0o"]
+
+[ext_resource type="Script" path="res://scripts/misc/hud.gd" id="1_7efum"]
+[ext_resource type="FontFile" uid="uid://beanguo85f1ku" path="res://assets/fonts/scientifica.ttf" id="1_uwbwm"]
+[ext_resource type="Theme" uid="uid://b43ub120yhf3e" path="res://resources/theme_font.tres" id="2_qdmba"]
+[ext_resource type="ButtonGroup" uid="uid://bt8apo2mvuhkd" path="res://resources/tower_buttons.tres" id="3_iq588"]
+[ext_resource type="Texture2D" uid="uid://djrhag6dnx40" path="res://assets/misc/add_icon_toggled.png" id="4_0ijt4"]
+[ext_resource type="Texture2D" uid="uid://cd3pnsxtsq7kq" path="res://assets/misc/add_icon_untoggled.png" id="5_8j25h"]
+[ext_resource type="Script" path="res://scripts/misc/tower_button.gd" id="5_d3j0n"]
+[ext_resource type="Texture2D" uid="uid://cqm1yproyr8vd" path="res://assets/misc/mul_icon_untoggled.png" id="6_k2x2s"]
+[ext_resource type="Texture2D" uid="uid://0vqe23paf2hi" path="res://assets/misc/mul_icon_toggled.png" id="7_cj7qh"]
+[ext_resource type="Texture2D" uid="uid://cm36b4qrxgo2b" path="res://assets/misc/mod_icon_untoggled.png" id="10_iqwme"]
+[ext_resource type="Texture2D" uid="uid://ybtp7813ks75" path="res://assets/misc/mod_icon_toggled.png" id="11_xfcev"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ap1dt"]
+font_size = 33
+font_color = Color(0.980392, 0.980392, 0.980392, 1)
+shadow_color = Color(0, 0, 0, 0.588235)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwbhg"]
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.00392157)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wd6la"]
+font = ExtResource("1_uwbwm")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[node name="hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_7efum")
+
+[node name="control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="control"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1900.0
+offset_bottom = 1060.0
+
+[node name="horizontal" type="HBoxContainer" parent="control/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="money_and_lives" type="VBoxContainer" parent="control/VBoxContainer/horizontal"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="money" type="Label" parent="control/VBoxContainer/horizontal/money_and_lives"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_qdmba")
+text = "Money: "
+label_settings = SubResource("LabelSettings_ap1dt")
+
+[node name="lives" type="Label" parent="control/VBoxContainer/horizontal/money_and_lives"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_qdmba")
+text = "Lives: "
+label_settings = SubResource("LabelSettings_ap1dt")
+
+[node name="wave" type="Label" parent="control/VBoxContainer/horizontal"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_qdmba")
+text = "Wave: "
+label_settings = SubResource("LabelSettings_ap1dt")
+horizontal_alignment = 2
+
+[node name="towers" type="Control" parent="control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="margin" type="MarginContainer" parent="control/towers"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -412.0
+offset_top = -212.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(412, 212)
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="horizontal" type="HBoxContainer" parent="control/towers/margin"]
+layout_mode = 2
+
+[node name="add" type="TextureButton" parent="control/towers/margin/horizontal"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+toggle_mode = true
+button_group = ExtResource("3_iq588")
+texture_normal = ExtResource("5_8j25h")
+texture_pressed = ExtResource("4_0ijt4")
+script = ExtResource("5_d3j0n")
+cost = 3
+
+[node name="cost" type="Label" parent="control/towers/margin/horizontal/add"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_qdmba")
+text = "5"
+label_settings = SubResource("LabelSettings_pwbhg")
+horizontal_alignment = 1
+
+[node name="mul" type="TextureButton" parent="control/towers/margin/horizontal"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+toggle_mode = true
+button_group = ExtResource("3_iq588")
+texture_normal = ExtResource("6_k2x2s")
+texture_pressed = ExtResource("7_cj7qh")
+script = ExtResource("5_d3j0n")
+select_index = 1
+cost = 10
+
+[node name="cost" type="Label" parent="control/towers/margin/horizontal/mul"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_qdmba")
+text = "20"
+label_settings = SubResource("LabelSettings_wd6la")
+horizontal_alignment = 1
+
+[node name="mod" type="TextureButton" parent="control/towers/margin/horizontal"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+toggle_mode = true
+button_group = ExtResource("3_iq588")
+texture_normal = ExtResource("10_iqwme")
+texture_pressed = ExtResource("11_xfcev")
+script = ExtResource("5_d3j0n")
+select_index = 2
+cost = 30
+
+[node name="cost" type="Label" parent="control/towers/margin/horizontal/mod"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_qdmba")
+text = "30"
+label_settings = SubResource("LabelSettings_wd6la")
+horizontal_alignment = 1
+
+[connection signal="toggled" from="control/towers/margin/horizontal/add" to="control/towers/margin/horizontal/add" method="_on_toggled"]
+[connection signal="tower_select" from="control/towers/margin/horizontal/add" to="." method="_on_tower_select"]
+[connection signal="toggled" from="control/towers/margin/horizontal/mul" to="control/towers/margin/horizontal/mul" method="_on_toggled"]
+[connection signal="tower_select" from="control/towers/margin/horizontal/mul" to="." method="_on_tower_select"]
+[connection signal="toggled" from="control/towers/margin/horizontal/mod" to="control/towers/margin/horizontal/mod" method="_on_toggled"]
+[connection signal="tower_select" from="control/towers/margin/horizontal/mod" to="." method="_on_tower_select"]

@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b43ub120yhf3e"]
+
+[ext_resource type="FontFile" uid="uid://b5cavfe86ldmc" path="res://assets/fonts/scientificaItalic.ttf" id="1_tpxng"]
+
+[resource]
+default_font = ExtResource("1_tpxng")

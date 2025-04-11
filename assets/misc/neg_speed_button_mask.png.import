@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ber8ouvn8e3h7"
+path="res://.godot/imported/neg_speed_button_mask.png-93906730ca6b0127f33c660d68f8f442.res"
+
+[deps]
+
+source_file="res://assets/misc/neg_speed_button_mask.png"
+dest_files=["res://.godot/imported/neg_speed_button_mask.png-93906730ca6b0127f33c660d68f8f442.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

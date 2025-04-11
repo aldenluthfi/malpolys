@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://clj7lt0yn52n"
+path="res://.godot/imported/neg_health_button_mask.png-bd3c596959d5adb35ec553b9e7dd4922.res"
+
+[deps]
+
+source_file="res://assets/misc/neg_health_button_mask.png"
+dest_files=["res://.godot/imported/neg_health_button_mask.png-bd3c596959d5adb35ec553b9e7dd4922.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

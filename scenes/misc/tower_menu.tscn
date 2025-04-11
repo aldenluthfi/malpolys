@@ -1,0 +1,152 @@
+[gd_scene load_steps=26 format=3 uid="uid://bkux7x55hm0x2"]
+
+[ext_resource type="Script" path="res://scripts/misc/tower_menu.gd" id="1_mn20g"]
+[ext_resource type="Texture2D" uid="uid://dp327g5hgph7c" path="res://assets/misc/tower_menu_background.png" id="2_sumxg"]
+[ext_resource type="Texture2D" uid="uid://peg6yyunb2fp" path="res://assets/misc/upgrade_button.png" id="3_b3kff"]
+[ext_resource type="Texture2D" uid="uid://tvdea58gke80" path="res://assets/misc/neg_health_button_hover.png" id="3_n1rak"]
+[ext_resource type="Texture2D" uid="uid://cvlsrlvhxqwya" path="res://assets/misc/neg_health_button.png" id="3_uaks5"]
+[ext_resource type="Texture2D" uid="uid://nml3oukikosq" path="res://assets/misc/pos_health_button.png" id="4_3ji1v"]
+[ext_resource type="BitMap" uid="uid://bflbfvislsepq" path="res://assets/misc/upgrade_button_mask.png" id="4_jgs7m"]
+[ext_resource type="BitMap" uid="uid://clj7lt0yn52n" path="res://assets/misc/neg_health_button_mask.png" id="5_6mgqv"]
+[ext_resource type="BitMap" uid="uid://c0w0hpyfcnrql" path="res://assets/misc/pos_health_button_mask.png" id="5_iuyp6"]
+[ext_resource type="Texture2D" uid="uid://swb8tptskcux" path="res://assets/misc/pos_health_button_hover.png" id="5_k6spp"]
+[ext_resource type="Texture2D" uid="uid://cmai4f2yqqqrn" path="res://assets/misc/neg_shield_button.png" id="6_jkdv8"]
+[ext_resource type="BitMap" uid="uid://cqgmolenqm86" path="res://assets/misc/neg_shield_button_mask.png" id="7_45we6"]
+[ext_resource type="Texture2D" uid="uid://bi5sb1a5pe1wg" path="res://assets/misc/pos_shield_button.png" id="8_mnmoi"]
+[ext_resource type="Texture2D" uid="uid://drt64ff2es5b" path="res://assets/misc/neg_shield_button_hover.png" id="8_qg3g5"]
+[ext_resource type="BitMap" uid="uid://rons3h6ijry8" path="res://assets/misc/pos_shield_button_mask.png" id="9_6lnc6"]
+[ext_resource type="Texture2D" uid="uid://dbv84tnh8s74h" path="res://assets/misc/neg_speed_button.png" id="10_lwad6"]
+[ext_resource type="BitMap" uid="uid://ber8ouvn8e3h7" path="res://assets/misc/neg_speed_button_mask.png" id="11_d3ah6"]
+[ext_resource type="Texture2D" uid="uid://5qxyb4nqrrk0" path="res://assets/misc/pos_shield_button_hover.png" id="11_vxybe"]
+[ext_resource type="Texture2D" uid="uid://n4rjy6ow0uum" path="res://assets/misc/pos_speed_button.png" id="12_nx6d2"]
+[ext_resource type="BitMap" uid="uid://dsl8qjj0ncare" path="res://assets/misc/pos_speed_button_mask.png" id="13_2wyy8"]
+[ext_resource type="Texture2D" uid="uid://bsu8p3puw2qww" path="res://assets/misc/neg_speed_button_hover.png" id="14_1xkf8"]
+[ext_resource type="Texture2D" uid="uid://c41fmauxxfiv1" path="res://assets/misc/pos_speed_button_hover.png" id="17_hhdvp"]
+[ext_resource type="Theme" uid="uid://b43ub120yhf3e" path="res://resources/theme_font.tres" id="23_wjonn"]
+[ext_resource type="Texture2D" uid="uid://dwd7r60wdq0c4" path="res://assets/misc/unupgradable_button.png" id="24_1ysc4"]
+[ext_resource type="Texture2D" uid="uid://dvgps76leyngh" path="res://assets/misc/tower_menu_overlay.png" id="25_re2y6"]
+
+[node name="tower_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mn20g")
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("2_sumxg")
+centered = false
+
+[node name="color_mode" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="neg_health" type="TextureButton" parent="color_mode"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_uaks5")
+texture_hover = ExtResource("3_n1rak")
+texture_click_mask = ExtResource("5_6mgqv")
+
+[node name="pos_health" type="TextureButton" parent="color_mode"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("4_3ji1v")
+texture_hover = ExtResource("5_k6spp")
+texture_click_mask = ExtResource("5_iuyp6")
+
+[node name="neg_shield" type="TextureButton" parent="color_mode"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("6_jkdv8")
+texture_hover = ExtResource("8_qg3g5")
+texture_click_mask = ExtResource("7_45we6")
+
+[node name="pos_shield" type="TextureButton" parent="color_mode"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("8_mnmoi")
+texture_hover = ExtResource("11_vxybe")
+texture_click_mask = ExtResource("9_6lnc6")
+
+[node name="neg_speed" type="TextureButton" parent="color_mode"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("10_lwad6")
+texture_hover = ExtResource("14_1xkf8")
+texture_click_mask = ExtResource("11_d3ah6")
+
+[node name="pos_speed" type="TextureButton" parent="color_mode"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("12_nx6d2")
+texture_hover = ExtResource("17_hhdvp")
+texture_click_mask = ExtResource("13_2wyy8")
+
+[node name="upgrade" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+pivot_offset = Vector2(128, 128)
+texture_normal = ExtResource("3_b3kff")
+texture_click_mask = ExtResource("4_jgs7m")
+
+[node name="cost" type="Label" parent="upgrade"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 4.0
+offset_right = 20.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 0)
+theme = ExtResource("23_wjonn")
+theme_override_font_sizes/font_size = 11
+text = "10"
+horizontal_alignment = 1
+
+[node name="unupgradable" type="TextureRect" parent="upgrade"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.33
+offset_right = 20.0
+offset_bottom = 29.67
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("24_1ysc4")
+
+[node name="overlay" type="Sprite2D" parent="."]
+texture = ExtResource("25_re2y6")
+centered = false
+
+[connection signal="pressed" from="color_mode/neg_health" to="." method="_on_neg_health_pressed"]
+[connection signal="pressed" from="color_mode/pos_health" to="." method="_on_pos_health_pressed"]
+[connection signal="pressed" from="color_mode/neg_shield" to="." method="_on_neg_shield_pressed"]
+[connection signal="pressed" from="color_mode/pos_shield" to="." method="_on_pos_shield_pressed"]
+[connection signal="pressed" from="color_mode/neg_speed" to="." method="_on_neg_speed_pressed"]
+[connection signal="pressed" from="color_mode/pos_speed" to="." method="_on_pos_speed_pressed"]
+[connection signal="pressed" from="upgrade" to="." method="_on_upgrade_pressed"]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cqgmolenqm86"
+path="res://.godot/imported/neg_shield_button_mask.png-ac668279ec8d5c3b56e5219062e39e4f.res"
+
+[deps]
+
+source_file="res://assets/misc/neg_shield_button_mask.png"
+dest_files=["res://.godot/imported/neg_shield_button_mask.png-ac668279ec8d5c3b56e5219062e39e4f.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

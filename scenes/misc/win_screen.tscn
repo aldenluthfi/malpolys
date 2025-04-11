@@ -1,0 +1,132 @@
+[gd_scene load_steps=12 format=3 uid="uid://dog7asxtg65ev"]
+
+[ext_resource type="Script" path="res://scripts/misc/menu.gd" id="1_4swcf"]
+[ext_resource type="PackedScene" uid="uid://bxbqopryq46qr" path="res://scenes/misc/main_menu.tscn" id="2_ki8gl"]
+[ext_resource type="Texture2D" uid="uid://d2mju3xdvdgbc" path="res://assets/misc/background_1.png" id="3_2afd7"]
+[ext_resource type="Texture2D" uid="uid://c5l8gmcvfo5bu" path="res://assets/misc/background_2.png" id="4_t1jfp"]
+[ext_resource type="Texture2D" uid="uid://df3enttix8nsi" path="res://assets/misc/background_3.png" id="5_iqofd"]
+[ext_resource type="FontFile" uid="uid://cg8in2ad6c3s0" path="res://assets/fonts/firacode_bold.ttf" id="6_adx56"]
+[ext_resource type="Texture2D" uid="uid://b04cpmiomsf4u" path="res://assets/misc/menu_button_normal.png" id="7_cdkxo"]
+[ext_resource type="Texture2D" uid="uid://dpejpsbt34byp" path="res://assets/misc/menu_button_clicked.png" id="8_g3fki"]
+[ext_resource type="Texture2D" uid="uid://c4xinlq48fggf" path="res://assets/misc/menu_button_hover.png" id="9_d3t80"]
+[ext_resource type="Theme" uid="uid://b43ub120yhf3e" path="res://resources/theme_font.tres" id="10_voryl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_31c6d"]
+line_spacing = -1.0
+font = ExtResource("6_adx56")
+font_size = 72
+font_color = Color(1, 0.745098, 0.0117647, 1)
+
+[node name="win_screen" type="Node2D"]
+script = ExtResource("1_4swcf")
+next = ExtResource("2_ki8gl")
+
+[node name="camera" type="Camera2D" parent="."]
+
+[node name="background" type="ParallaxBackground" parent="."]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+scroll_base_scale = Vector2(2, 2)
+scroll_ignore_camera_zoom = true
+
+[node name="layer_1" type="ParallaxLayer" parent="background"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(640, 360)
+
+[node name="sprite" type="Sprite2D" parent="background/layer_1"]
+scale = Vector2(1.111, 1.111)
+texture = ExtResource("3_2afd7")
+centered = false
+
+[node name="layer_2" type="ParallaxLayer" parent="background"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(639, 359)
+
+[node name="sprite" type="Sprite2D" parent="background/layer_2"]
+scale = Vector2(1.111, 1.111)
+texture = ExtResource("4_t1jfp")
+centered = false
+flip_v = true
+
+[node name="layer_3" type="ParallaxLayer" parent="background"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(639, 359)
+
+[node name="sprite" type="Sprite2D" parent="background/layer_3"]
+scale = Vector2(1.111, 1.111)
+texture = ExtResource("4_t1jfp")
+centered = false
+
+[node name="layer_4" type="ParallaxLayer" parent="background"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(639, 359)
+
+[node name="sprite" type="Sprite2D" parent="background/layer_4"]
+scale = Vector2(1.111, 1.111)
+texture = ExtResource("5_iqofd")
+centered = false
+
+[node name="layer_5" type="ParallaxLayer" parent="background"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(639, 359)
+
+[node name="sprite" type="Sprite2D" parent="background/layer_5"]
+scale = Vector2(1.111, 1.111)
+texture = ExtResource("5_iqofd")
+centered = false
+flip_v = true
+
+[node name="gui" type="CanvasLayer" parent="."]
+
+[node name="vbox" type="VBoxContainer" parent="gui"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -421.0
+offset_top = -220.5
+offset_right = 421.0
+offset_bottom = 220.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="title" type="Label" parent="gui/vbox"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "┓┏•        ╻
+┃┃┓┏╋┏┓┏┓┓┏┃
+┗┛┗┗┗┗┛┛ ┗┫•
+          ┛ "
+label_settings = SubResource("LabelSettings_31c6d")
+horizontal_alignment = 1
+
+[node name="start" type="TextureButton" parent="gui/vbox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_cdkxo")
+texture_pressed = ExtResource("8_g3fki")
+texture_hover = ExtResource("9_d3t80")
+
+[node name="label" type="Label" parent="gui/vbox/start"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_voryl")
+theme_override_font_sizes/font_size = 33
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[connection signal="button_down" from="gui/vbox/start" to="." method="_on_start_button_down"]
+[connection signal="mouse_entered" from="gui/vbox/start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="gui/vbox/start" to="." method="_on_start_mouse_exited"]
+[connection signal="pressed" from="gui/vbox/start" to="." method="_on_start_pressed"]

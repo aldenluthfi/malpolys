@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dsl8qjj0ncare"
+path="res://.godot/imported/pos_speed_button_mask.png-971102286180863c2d3c1f6d439f18ab.res"
+
+[deps]
+
+source_file="res://assets/misc/pos_speed_button_mask.png"
+dest_files=["res://.godot/imported/pos_speed_button_mask.png-971102286180863c2d3c1f6d439f18ab.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
