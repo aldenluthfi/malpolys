@@ -13,3 +13,14 @@ extends Control
 
 func _on_tower_select(index: int) -> void:
 	parent.update_tower_selection(index)
+
+
+func _on_pause_play_toggled(toggled_on: bool) -> void:
+	get_tree().paused = not get_tree().paused
+
+
+func _on_ff_button_toggled(toggled_on: bool) -> void:
+	if Engine.time_scale == 3:
+		Engine.time_scale = 1
+	else:
+		Engine.time_scale = 3

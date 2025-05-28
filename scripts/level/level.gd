@@ -55,6 +55,7 @@ func _ready() -> void:
 
 	tile_map.set_cells_terrain_connect([Vector2i(-6, 0)], 0, 0)
 	var initial_expand = expand_button.instantiate()
+	initial_expand.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 	initial_expand.position = tile_isometric_to_cartesian(
 		Vector2i(-6, 0)
@@ -88,6 +89,7 @@ func expand(coords: Vector2i, rotation_index: int) -> void:
 
 	for point in expansions[0]:
 		var expansion = expand_button.instantiate()
+		expansion.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 		expansion.position = tile_isometric_to_cartesian(
 			point[0] + Vector2i(1, 0)
@@ -152,21 +154,22 @@ func start_round():
 		weights.append(1.0 / inst.worth)
 
 	while _current_wave < (MAX_WAVE  * wave) / 100.0:
+		if not get_tree().paused:
+			# the stronger the enemy, the less likely to spawn (10x less likely)
+			var enemy = enemies[
+				_rng.rand_weighted(PackedFloat32Array(weights))
+			]
+			enemy = enemy.instantiate()
+			enemy.path = paths.pick_random()
+			enemy.process_mode = Node.PROCESS_MODE_PAUSABLE
+			enemy.spawn(wave)
 
-		# the stronger the enemy, the less likely to spawn (10x less likely)
-		var enemy = enemies[
-			_rng.rand_weighted(PackedFloat32Array(weights))
-		]
-		enemy = enemy.instantiate()
-		enemy.path = paths.pick_random()
-		enemy.spawn(wave)
+			add_child(enemy)
+			_wave_enemies.append(enemy)
+			enemy.connect("goal_reached", _enemy_event)
+			enemy.connect("death", _enemy_event)
 
-		add_child(enemy)
-		_wave_enemies.append(enemy)
-		enemy.connect("goal_reached", _enemy_event)
-		enemy.connect("death", _enemy_event)
-
-		_current_wave += enemy.worth
+			_current_wave += enemy.worth
 
 		await get_tree().create_timer(2).timeout
 
@@ -298,6 +301,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 				update_money(-tower.cost)
 				add_child(tower)
+	
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_F1:
+			hud.hide()
 
 func _process(_delta: float) -> void:
 	var pos = tile_cartesian_to_isometric(get_global_mouse_position())

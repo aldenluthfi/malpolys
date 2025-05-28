@@ -1,12 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://da5jiuqnd1p0o"]
+[gd_scene load_steps=19 format=3 uid="uid://da5jiuqnd1p0o"]
 
 [ext_resource type="Script" path="res://scripts/misc/hud.gd" id="1_7efum"]
 [ext_resource type="FontFile" uid="uid://beanguo85f1ku" path="res://assets/fonts/scientifica.ttf" id="1_uwbwm"]
 [ext_resource type="Theme" uid="uid://b43ub120yhf3e" path="res://resources/theme_font.tres" id="2_qdmba"]
+[ext_resource type="Texture2D" uid="uid://0x0i8fwh03wu" path="res://assets/misc/pause_button.png" id="3_322xw"]
 [ext_resource type="ButtonGroup" uid="uid://bt8apo2mvuhkd" path="res://resources/tower_buttons.tres" id="3_iq588"]
 [ext_resource type="Texture2D" uid="uid://djrhag6dnx40" path="res://assets/misc/add_icon_toggled.png" id="4_0ijt4"]
+[ext_resource type="Texture2D" uid="uid://c8u2uhfopp13w" path="res://assets/misc/play_button.png" id="4_ynws0"]
 [ext_resource type="Texture2D" uid="uid://cd3pnsxtsq7kq" path="res://assets/misc/add_icon_untoggled.png" id="5_8j25h"]
+[ext_resource type="Texture2D" uid="uid://cyc5md26jcrd8" path="res://assets/misc/fast_forward_button.png" id="5_c63tl"]
 [ext_resource type="Script" path="res://scripts/misc/tower_button.gd" id="5_d3j0n"]
+[ext_resource type="Texture2D" uid="uid://dt6vur68ea5t0" path="res://assets/misc/fast_forward_button_2.png" id="6_8l485"]
 [ext_resource type="Texture2D" uid="uid://cqm1yproyr8vd" path="res://assets/misc/mul_icon_untoggled.png" id="6_k2x2s"]
 [ext_resource type="Texture2D" uid="uid://0vqe23paf2hi" path="res://assets/misc/mul_icon_toggled.png" id="7_cj7qh"]
 [ext_resource type="Texture2D" uid="uid://cm36b4qrxgo2b" path="res://assets/misc/mod_icon_untoggled.png" id="10_iqwme"]
@@ -28,6 +32,7 @@ font_size = 22
 font_color = Color(0, 0, 0, 1)
 
 [node name="hud" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,7 +60,6 @@ offset_bottom = 1060.0
 
 [node name="horizontal" type="HBoxContainer" parent="control/VBoxContainer"]
 layout_mode = 2
-mouse_filter = 2
 
 [node name="money_and_lives" type="VBoxContainer" parent="control/VBoxContainer/horizontal"]
 layout_mode = 2
@@ -89,36 +93,41 @@ text = "Wave: "
 label_settings = SubResource("LabelSettings_ap1dt")
 horizontal_alignment = 2
 
-[node name="towers" type="Control" parent="control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
+[node name="pause_and_towers" type="HBoxContainer" parent="control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
 
-[node name="margin" type="MarginContainer" parent="control/towers"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -412.0
-offset_top = -212.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(1.5, 1.5)
-pivot_offset = Vector2(412, 212)
+[node name="puase_play_container" type="HBoxContainer" parent="control/VBoxContainer/pause_and_towers"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="pause_play" type="TextureButton" parent="control/VBoxContainer/pause_and_towers/puase_play_container"]
+layout_mode = 2
+mouse_filter = 1
+toggle_mode = true
+texture_normal = ExtResource("3_322xw")
+texture_pressed = ExtResource("4_ynws0")
+
+[node name="ff_button" type="TextureButton" parent="control/VBoxContainer/pause_and_towers/puase_play_container"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("5_c63tl")
+texture_pressed = ExtResource("6_8l485")
+
+[node name="towers" type="VBoxContainer" parent="control/VBoxContainer/pause_and_towers"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="margin" type="MarginContainer" parent="control/VBoxContainer/pause_and_towers/towers"]
+layout_mode = 2
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="horizontal" type="HBoxContainer" parent="control/towers/margin"]
+[node name="horizontal" type="HBoxContainer" parent="control/VBoxContainer/pause_and_towers/towers/margin"]
 layout_mode = 2
 
-[node name="add" type="TextureButton" parent="control/towers/margin/horizontal"]
+[node name="add" type="TextureButton" parent="control/VBoxContainer/pause_and_towers/towers/margin/horizontal"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
@@ -130,7 +139,7 @@ texture_pressed = ExtResource("4_0ijt4")
 script = ExtResource("5_d3j0n")
 cost = 3
 
-[node name="cost" type="Label" parent="control/towers/margin/horizontal/add"]
+[node name="cost" type="Label" parent="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/add"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -145,7 +154,7 @@ text = "5"
 label_settings = SubResource("LabelSettings_pwbhg")
 horizontal_alignment = 1
 
-[node name="mul" type="TextureButton" parent="control/towers/margin/horizontal"]
+[node name="mul" type="TextureButton" parent="control/VBoxContainer/pause_and_towers/towers/margin/horizontal"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
@@ -158,7 +167,7 @@ script = ExtResource("5_d3j0n")
 select_index = 1
 cost = 10
 
-[node name="cost" type="Label" parent="control/towers/margin/horizontal/mul"]
+[node name="cost" type="Label" parent="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/mul"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -173,7 +182,7 @@ text = "20"
 label_settings = SubResource("LabelSettings_wd6la")
 horizontal_alignment = 1
 
-[node name="mod" type="TextureButton" parent="control/towers/margin/horizontal"]
+[node name="mod" type="TextureButton" parent="control/VBoxContainer/pause_and_towers/towers/margin/horizontal"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
@@ -186,7 +195,7 @@ script = ExtResource("5_d3j0n")
 select_index = 2
 cost = 30
 
-[node name="cost" type="Label" parent="control/towers/margin/horizontal/mod"]
+[node name="cost" type="Label" parent="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/mod"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -201,9 +210,11 @@ text = "30"
 label_settings = SubResource("LabelSettings_wd6la")
 horizontal_alignment = 1
 
-[connection signal="toggled" from="control/towers/margin/horizontal/add" to="control/towers/margin/horizontal/add" method="_on_toggled"]
-[connection signal="tower_select" from="control/towers/margin/horizontal/add" to="." method="_on_tower_select"]
-[connection signal="toggled" from="control/towers/margin/horizontal/mul" to="control/towers/margin/horizontal/mul" method="_on_toggled"]
-[connection signal="tower_select" from="control/towers/margin/horizontal/mul" to="." method="_on_tower_select"]
-[connection signal="toggled" from="control/towers/margin/horizontal/mod" to="control/towers/margin/horizontal/mod" method="_on_toggled"]
-[connection signal="tower_select" from="control/towers/margin/horizontal/mod" to="." method="_on_tower_select"]
+[connection signal="toggled" from="control/VBoxContainer/pause_and_towers/puase_play_container/pause_play" to="." method="_on_pause_play_toggled"]
+[connection signal="toggled" from="control/VBoxContainer/pause_and_towers/puase_play_container/ff_button" to="." method="_on_ff_button_toggled"]
+[connection signal="toggled" from="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/add" to="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/add" method="_on_toggled"]
+[connection signal="tower_select" from="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/add" to="." method="_on_tower_select"]
+[connection signal="toggled" from="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/mul" to="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/mul" method="_on_toggled"]
+[connection signal="tower_select" from="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/mul" to="." method="_on_tower_select"]
+[connection signal="toggled" from="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/mod" to="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/mod" method="_on_toggled"]
+[connection signal="tower_select" from="control/VBoxContainer/pause_and_towers/towers/margin/horizontal/mod" to="." method="_on_tower_select"]
