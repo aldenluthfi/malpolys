@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://b7ggvgg7h5402"]
 
-[ext_resource type="Script" path="res://scripts/enemies/quads.gd" id="1_2orb4"]
+[ext_resource type="Script" uid="uid://btv7img61xnhg" path="res://scripts/enemies/quads.gd" id="1_2orb4"]
 [ext_resource type="Texture2D" uid="uid://ber47i6ka6ioh" path="res://assets/enemies/icosahedron.png" id="2_nkpyp"]
 [ext_resource type="Texture2D" uid="uid://v3eqvvmgfiro" path="res://assets/misc/explosion.png" id="3_bcb01"]
 [ext_resource type="PackedScene" uid="uid://bswgblw3j6ow6" path="res://scenes/misc/bars.tscn" id="3_w2xox"]

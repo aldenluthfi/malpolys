@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://da5jiuqnd1p0o"]
 
-[ext_resource type="Script" path="res://scripts/misc/hud.gd" id="1_7efum"]
+[ext_resource type="Script" uid="uid://dqxpbcet1yyb5" path="res://scripts/misc/hud.gd" id="1_7efum"]
 [ext_resource type="FontFile" uid="uid://beanguo85f1ku" path="res://assets/fonts/scientifica.ttf" id="1_uwbwm"]
 [ext_resource type="Theme" uid="uid://b43ub120yhf3e" path="res://resources/theme_font.tres" id="2_qdmba"]
 [ext_resource type="Texture2D" uid="uid://0x0i8fwh03wu" path="res://assets/misc/pause_button.png" id="3_322xw"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c8u2uhfopp13w" path="res://assets/misc/play_button.png" id="4_ynws0"]
 [ext_resource type="Texture2D" uid="uid://cd3pnsxtsq7kq" path="res://assets/misc/add_icon_untoggled.png" id="5_8j25h"]
 [ext_resource type="Texture2D" uid="uid://cyc5md26jcrd8" path="res://assets/misc/fast_forward_button.png" id="5_c63tl"]
-[ext_resource type="Script" path="res://scripts/misc/tower_button.gd" id="5_d3j0n"]
+[ext_resource type="Script" uid="uid://pooqxjogvjli" path="res://scripts/misc/tower_button.gd" id="5_d3j0n"]
 [ext_resource type="Texture2D" uid="uid://dt6vur68ea5t0" path="res://assets/misc/fast_forward_button_2.png" id="6_8l485"]
 [ext_resource type="Texture2D" uid="uid://cqm1yproyr8vd" path="res://assets/misc/mul_icon_untoggled.png" id="6_k2x2s"]
 [ext_resource type="Texture2D" uid="uid://0vqe23paf2hi" path="res://assets/misc/mul_icon_toggled.png" id="7_cj7qh"]

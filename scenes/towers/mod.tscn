@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://bri8kvxhih0s3"]
 
 [ext_resource type="Texture2D" uid="uid://dduqeourrimt6" path="res://assets/towers/mod_base_1.png" id="1_o3f7f"]
-[ext_resource type="Script" path="res://scripts/towers/mod.gd" id="1_wwrn0"]
+[ext_resource type="Script" uid="uid://bdi84me5yfslu" path="res://scripts/towers/mod.gd" id="1_wwrn0"]
 [ext_resource type="Texture2D" uid="uid://dv0t7ymc0oxh5" path="res://assets/towers/mod_modulate_1.png" id="2_0vs5d"]
 [ext_resource type="Texture2D" uid="uid://bmttx2d5470w0" path="res://assets/towers/mod_base_2.png" id="2_tfmnq"]
 [ext_resource type="Texture2D" uid="uid://datq5ypk862hq" path="res://assets/towers/mod_base_3.png" id="3_c4fp7"]

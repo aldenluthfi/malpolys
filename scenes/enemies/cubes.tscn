@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://cq5a0xanbf4un"]
 
 [ext_resource type="Texture2D" uid="uid://b5itco7epk6eg" path="res://assets/enemies/cube.png" id="1_63tjx"]
-[ext_resource type="Script" path="res://scripts/enemies/cubes.gd" id="1_vxdfn"]
+[ext_resource type="Script" uid="uid://dlmvg4msp2mnr" path="res://scripts/enemies/cubes.gd" id="1_vxdfn"]
 [ext_resource type="Texture2D" uid="uid://v3eqvvmgfiro" path="res://assets/misc/explosion.png" id="2_ei0ee"]
 [ext_resource type="PackedScene" uid="uid://bswgblw3j6ow6" path="res://scenes/misc/bars.tscn" id="2_rjkm4"]
 [ext_resource type="AudioStream" uid="uid://rwvvjmky5qcm" path="res://assets/sfx/explosion.mp3" id="5_35c6r"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=109 format=3 uid="uid://do3mltbhlr1qx"]
 
-[ext_resource type="Script" path="res://scripts/towers/mul.gd" id="1_75w4u"]
+[ext_resource type="Script" uid="uid://dhifaei7ghpw2" path="res://scripts/towers/mul.gd" id="1_75w4u"]
 [ext_resource type="Texture2D" uid="uid://dsu1mamm5grej" path="res://assets/towers/mul_base_1.png" id="2_uw0ra"]
 [ext_resource type="Texture2D" uid="uid://c45xl4wev8v6p" path="res://assets/towers/mul_modulate_1.png" id="3_c5pvb"]
 [ext_resource type="Texture2D" uid="uid://d0y4y0j8eao4r" path="res://assets/towers/mul_base_2.png" id="3_whrfk"]

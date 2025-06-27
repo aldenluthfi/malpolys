@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://dgcou2aqohpm5"]
 
-[ext_resource type="Script" path="res://scripts/enemies/lins.gd" id="1_pkw1k"]
+[ext_resource type="Script" uid="uid://cqvjr0cucgknp" path="res://scripts/enemies/lins.gd" id="1_pkw1k"]
 [ext_resource type="Texture2D" uid="uid://v3eqvvmgfiro" path="res://assets/misc/explosion.png" id="2_7wlc8"]
 [ext_resource type="Texture2D" uid="uid://bk6002402birq" path="res://assets/enemies/dodecahedron.png" id="2_832n8"]
 [ext_resource type="PackedScene" uid="uid://bswgblw3j6ow6" path="res://scenes/misc/bars.tscn" id="3_uj35g"]

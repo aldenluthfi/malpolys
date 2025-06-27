@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://bkux7x55hm0x2"]
 
-[ext_resource type="Script" path="res://scripts/misc/tower_menu.gd" id="1_mn20g"]
+[ext_resource type="Script" uid="uid://l6jqjq723q2y" path="res://scripts/misc/tower_menu.gd" id="1_mn20g"]
 [ext_resource type="Texture2D" uid="uid://dp327g5hgph7c" path="res://assets/misc/tower_menu_background.png" id="2_sumxg"]
 [ext_resource type="Texture2D" uid="uid://peg6yyunb2fp" path="res://assets/misc/upgrade_button.png" id="3_b3kff"]
 [ext_resource type="Texture2D" uid="uid://tvdea58gke80" path="res://assets/misc/neg_health_button_hover.png" id="3_n1rak"]
